@@ -20,8 +20,8 @@ const Shop = () => {
                     <h1 className="text-center my-5">Shop</h1>
                     {products.map(product => {
                         return (
-                            <div className="col-3">
-                                <Card key={product.id}>
+                            <div className="col-3" key={product.id}>
+                                <Card>
                                     <Card.Img variant="top" className="w-50 m-auto"  src={product.image} />
                                     <Card.Body>
                                         <Card.Title>{product.title}</Card.Title>
