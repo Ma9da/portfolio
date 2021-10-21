@@ -14,6 +14,12 @@ const NavBar = () => {
                         <Nav.Link as={Link} to="/Counter">
                                 Counter
                         </Nav.Link>
+                        <Nav.Link as={Link} to="/Todo">
+                                Todo list
+                        </Nav.Link>
+                        <Nav.Link as={Link} to="/About">
+                                About
+                        </Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>

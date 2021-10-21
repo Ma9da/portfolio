@@ -1,10 +1,10 @@
 import { Nav } from "react-bootstrap"
-
+import './footer.css'
 const Footer = () => {
     return (
         <>
             <>
-                <Nav className="justify-content-end bg-dark" activeKey="/home">
+                <Nav className="justify-content-end bg-dark" id="footer" activeKey="/home">
                     <Nav.Item>
                         <Nav.Link href="/home">Active</Nav.Link>
                     </Nav.Item>

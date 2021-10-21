@@ -36,14 +36,12 @@ const Shop = () => {
                                         </Badge>
                                     </Card.Footer>
                                     <Link to={`/ShopItem/${product.id}`} className="stretched-link"></Link>
-                                    {/* <Link as={Link} to="/Counter"></Link> */}
                                 </Card>
                             </div>
                         )
                     })}
                 </div>
             </div>
-
         </>
     )
 }

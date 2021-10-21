@@ -6,7 +6,8 @@ import Shop from './components/shop/Shop'
 import Counter from './components/counter/Counter'
 import ShopItem from './components/shopItem/ShopItem'
 import Footer from './components/footer/Footer';
-
+import About from './components/about/About';
+import Todo from './components/todo/Todo';
 function App() {
   return (
     <>
@@ -17,6 +18,8 @@ function App() {
             <Route path="/Counter" component={Counter} />
             <Route component={Shop} path="/Shop" />
             <Route component={ShopItem} path="/ShopItem/:id" exact />
+            <Route component={About} path="/about"/>
+            <Route component={Todo} path="/todo"/>
             <Route component={Shop} path="/" exact />
           </Switch>
         </div>
