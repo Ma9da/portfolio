@@ -28,10 +28,10 @@ export const todoReducer = (state = intialState, action) => {
         case ADD_TODO:
             console.log(action.payload)
             return { ...state, todos: [...state.todos, action.payload] };
-        // case REMOVE_TODO:
-        //     return {
-        //         ...state, todos: [...state.todos.filter((todo, i) => i !== action.i)]
-        //     }
+        case REMOVE_TODO:
+            return {
+                ...state, todos: [...state.todos.filter((todo, i) => i !== action.payload)]
+            }
         default:
             return state
     }
