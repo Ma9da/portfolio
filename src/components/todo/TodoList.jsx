@@ -1,21 +1,32 @@
+import { Card } from "react-bootstrap";
+
 const TodoList = ({ todos, deleteTodo }) => {
     const todosList =
         todos && todos.length > 0 ? (
             todos.map((todo, i) => {
                 return (
-                    <ul key={i}>
-                        <li className="border d-flex">
-                            <div className="text">
-                                <p>Title : {todo.title}</p>
-                                <p>Content : {todo.content}</p>
-                                <button onClick={()=>deleteTodo(i)}>X</button>
+                    <>
+                        <div className="container">
+                            <div className="row justify-content-center my-2">
+                                <div className="col-5">
+                                <Card key={i} className="bg-light">
+                            <Card.Header>{todo.title}</Card.Header>
+                            <Card.Body>
+                                <Card.Text>
+                                    {todo.content}
+                                </Card.Text>
+                                <button className="btn btn-danger" onClick={() => deleteTodo(i)}>Remove</button>
+
+                            </Card.Body>
+                        </Card>
+                                </div>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </>
                 );
             })
         ) : (
-           <small className="text-danger">your todo is empty.</small>
+            <small className="text-danger">your todo is empty.</small>
         );
 
     return (
