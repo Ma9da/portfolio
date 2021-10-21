@@ -1,24 +1,20 @@
-import { useState } from "react";
+import { useSelector } from 'react-redux';
 import CounterAction from '../../components/counter/CounterAction';
 import './Counter.css'
-function Counter() {
-  const [count, setCount] = useState(0)
-  function increment() {
-    setCount(count + 1)
-  }
-  function decrement() {
-    if (count !== 0) {
-      setCount(count - 1)
+// import { incrementCounter } from '../../redux/counterRedux'
 
-    }
-  }
-  return (
-    <div className="d-flex justify-content-center text-center flex-column align-items-center">
-      <p className="counter"> {count}</p>
-      <div>
-        <CounterAction count={count} decrement={decrement} increment={increment} />
-      </div>
+function Counter() {
+  // global state from redux 
+
+  const countState = useSelector(state => state.count)
+
+
+  return (<div className="d-flex justify-content-center text-center flex-column align-items-center">
+    <p className="counter"> {countState}</p>
+    <div>
+      <CounterAction />
     </div>
-  )
+  </div>)
+
 }
 export default Counter
