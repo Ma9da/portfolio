@@ -1,23 +1,25 @@
-import { useState } from "react";
+// import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import TodoForm from "../../components/todo/TodoForm";
 import TodoList from "../../components/todo/TodoList";
+import {addTodoAcion } from '../../redux/todoRedux'
 import './Todo.css';
 function Todo() {
-    const [todos, setTodos] = useState([]);
-
+const todoState = useSelector(state => state.todos)
+const dispatch = useDispatch([])
     const addTodo = (task) => {
-        setTodos([...todos, task]);
+        dispatch(addTodoAcion(task))
     };
 
-    const deleteTodo = (index) => {
-        setTodos(todos.filter((todo, i) => i !== index))
-    }
+    // const deleteTodo = (index) => {
+    //     dispatch(RemoveTodoAcion(index))// setTodos(todos.filter((todo, i) => i !== index))
+    // }
 
     return (
         <div className="text-center py-2 todo-wrapper container">
             <h1>To-do List</h1>
             <TodoForm addTodo={addTodo} />
-            <TodoList todos={todos} deleteTodo={deleteTodo} />
+            <TodoList  todos={todoState} />
         </div>
     );
 }

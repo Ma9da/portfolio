@@ -1,8 +1,7 @@
-import { createStore } from "redux"
-
-// action 
+// import { createStore } from "redux"
 const INCREMENT_COUNTER = "INCREMENT_COUNTER"
 const DECREMENT_COUNTER = "DECREMENT_COUNTER"
+// action 
 export const incrementCounter = (payload) => {
     return {
         type: INCREMENT_COUNTER,
@@ -15,16 +14,12 @@ export const decrementCounter = (payload) => {
         payload
     }
 }
-
-
 // state 
 const initialState = {
     count: 0
 }
-
-
-// reducer 
-function reducer(state = initialState, action) {
+//Reducer 
+export function counterReducer(state = initialState, action) {
     switch (action.type) {
         case INCREMENT_COUNTER:
             return { ...state, count: state.count + action.payload };
@@ -33,11 +28,6 @@ function reducer(state = initialState, action) {
         default:
             return state;
     }
-
 }
-
-
-
-
 // store 
-export const store = createStore(reducer)
+// export const store = createStore(counterReducer)
