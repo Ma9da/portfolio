@@ -1,22 +1,9 @@
 import { useState } from "react";
-import TodoForm from "./TodoForm";
-import TodoList from "./TodoList";
+import TodoForm from "../../components/todo/TodoForm";
+import TodoList from "../../components/todo/TodoList";
 import './Todo.css';
 function Todo() {
-    const [todos, setTodos] = useState([
-        {
-            title: "learn node js",
-            content: "Lorem ipsum dolor sit amet.",
-        },
-        {
-            title: "go to the sea",
-            content: "Lorem ipsum dolor sit amet.",
-        },
-        {
-            title: "walk the dog",
-            content: "Lorem ipsum dolor sit amet.",
-        },
-    ]);
+    const [todos, setTodos] = useState([]);
 
     const addTodo = (task) => {
         setTodos([...todos, task]);

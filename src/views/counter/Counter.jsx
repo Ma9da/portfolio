@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CounterAction from './CounterAction';
+import CounterAction from '../../components/counter/CounterAction';
 import './Counter.css'
 function Counter() {
   const [count, setCount] = useState(0)
