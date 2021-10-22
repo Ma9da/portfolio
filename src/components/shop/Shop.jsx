@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Badge, Card } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import './shop.css'
 
 const Shop = () => {
     const [products, setProducts] = useState([])
@@ -21,11 +22,11 @@ const Shop = () => {
                     {products.map(product => {
                         return (
                             <div className="col-3" key={product.id}>
-                                <Card>
-                                    <Card.Img variant="top" className="w-50 m-auto"  src={product.image} />
+                                <Card className="shop-card my-2">
+                                    <Card.Img variant="top" className="w-50 m-auto" src={product.image} />
                                     <Card.Body>
                                         <Card.Title>{product.title}</Card.Title>
-                                        <Card.Text>
+                                        <Card.Text className="text-truncate">
                                             {product.description}
                                         </Card.Text>
                                     </Card.Body>

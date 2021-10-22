@@ -1,4 +1,4 @@
-import { ErrorMessage, Field, Formik } from "formik"
+import { ErrorMessage, Field, FieldArray, Formik } from "formik"
 import { Form } from "react-bootstrap"
 import * as Yup from "yup";
 
@@ -16,7 +16,7 @@ const RegistrationForm = () => {
                             password: '',
                             confirmPassword: '',
                             active: false,
-                            hoppies:['']
+                            hoppies: ['']
                         }}
                         validationSchema={Yup.object().shape({
                             gender: Yup.string()
@@ -38,10 +38,10 @@ const RegistrationForm = () => {
                                 .oneOf([true], 'active is required')
                         })}
                         onSubmit={fields => {
-                            alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
+                            JSON.stringify(fields, null, 4)
                         }}
                     >
-                        {({ errors, status, touched }) => (
+                        {({ errors, status, touched, values }) => (
                             <Form>
                                 <div className="form-row">
                                     <div className="form-group col">
@@ -85,10 +85,54 @@ const RegistrationForm = () => {
                                     <label htmlFor="active" className="form-check-label">Active</label>
                                     <ErrorMessage name="active" component="div" className="invalid-feedback" />
                                 </div>
+                                {/* 88888888888888888888888888888888888888888888888888 */}
+                                <FieldArray
+                                    className="py-1"
+                                    name="hobbies"
+                                    render={(arrayHelpers) => {
+                                        const hobbies = values.hobbies;
+                                        return (
+                                            <div>
+                                                {hobbies && hobbies.length > 0
+                                                    ? hobbies.map((hobby, index) => (
+                                                        <div key={index}>
+                                                            <Field
+                                                                placeholder="Hobby"
+                                                                name={`hobbies.${index}`}
+                                                            />
+                                                            <ErrorMessage name={`hobbies.${index}`} />
+                                                            <br />
+                                                            <button
+                                                                className="btn btn-danger my-1"
+                                                                type="button"
+                                                                onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
+                                                            >
+                                                                delete
+                                                            </button>
+                                                            <br />
+                                                            <br />
+                                                        </div>
+                                                    ))
+                                                    : null}
+                                                <button
+                                                className="btn btn-dark"
+                                                    type="button"
+                                                    onClick={() => arrayHelpers.push("")} // insert an empty string at a position
+                                                >
+                                                    add a Hobby
+                                                </button>
+                                                <br />
+                                                <br />
+                                                <br />
+                                            </div>
+                                        );
+                                    }}
+                                />
                                 <div className="form-group">
                                     <button type="submit" className="btn btn-primary me-2">Register</button>
                                     <button type="reset" className="btn btn-secondary">Reset</button>
                                 </div>
+
                             </Form>
                         )}
                     </Formik>

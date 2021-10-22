@@ -1,17 +1,27 @@
-import * as yup from "yup";
+import React from "react";
 import { useFormik } from "formik";
+import * as yup from "yup";
+
+
 const LoginForm = () => {
+    const initialValues = {
+        email: "",
+        password: "",
+        rememberMe: false,
+    };
+    const onSubmit = (values) => console.log(JSON.stringify(values, null, 4));
+    const validationSchema = yup.object({
+        email: yup
+            .string()
+            .email("Please enter a valid email address")
+            .required("Email field is required"),
+        password: yup.string().required("Password field is required"),
+    });
+
     const formik = useFormik({
-        initialValues: {
-            email: "",
-            password: "",
-            rememberMe: false,
-        },
-        onSubmit: (values) => console.log(JSON.stringify(values, null, 4)),
-        validationSchema: yup.object({
-            email: yup.string().email().required(),
-            password: yup.string().required(),
-        }),
+        initialValues,
+        onSubmit,
+        validationSchema,
     });
     return (
         <form onSubmit={formik.handleSubmit}>
@@ -23,9 +33,7 @@ const LoginForm = () => {
                     type="email"
                     id="email"
                     name="email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
+                    {...formik.getFieldProps("email")}
                 />
                 {formik.touched.email && formik.errors.email && (
                     <div className="text-danger">{formik.errors.email}</div>
@@ -38,9 +46,7 @@ const LoginForm = () => {
                     type="password"
                     id="password"
                     name="password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
+                    {...formik.getFieldProps("password")}
                 />
                 {formik.touched.password && formik.errors.password && (
                     <div className="text-danger">{formik.errors.password}</div>
@@ -53,19 +59,14 @@ const LoginForm = () => {
                     type="checkbox"
                     name="rememberMe"
                     id="rememberMe"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
                     defaultChecked={formik.values.rememberMe}
+                    {...formik.getFieldProps("rememberMe")}
                 />
+
                 <button style={{ display: "block" }}>submit</button>
-                {console.log(formik.values, formik.errors)}
             </div>
-            {/* <pre>{JSON.stringify(formik, null, 4)}</pre> */}
+            <pre>{JSON.stringify(formik, null, 4)}</pre>
         </form>
     );
 };
-
-
-
-
-export default LoginForm
+export default LoginForm;
