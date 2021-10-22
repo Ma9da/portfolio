@@ -8,6 +8,9 @@ const NavBar = () => {
                 <Container>
                     <Nav className="me-auto">
                         <Navbar.Brand >E-commerce</Navbar.Brand>
+                        <Nav.Link as={Link} to="/About">
+                                About
+                        </Nav.Link>
                         <Nav.Link as={Link} to="/Shop">
                             Shop
                         </Nav.Link>
@@ -17,8 +20,11 @@ const NavBar = () => {
                         <Nav.Link as={Link} to="/Todo">
                                 Todo list
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/About">
-                                About
+                        <Nav.Link as={Link} to="/login">
+                                login
+                        </Nav.Link>
+                        <Nav.Link as={Link} to="/registration">
+                                register
                         </Nav.Link>
                     </Nav>
                 </Container>

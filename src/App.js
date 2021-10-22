@@ -8,6 +8,8 @@ import ShopItem from './components/shopItem/ShopItem'
 import Footer from './components/footer/Footer';
 import About from './components/about/About';
 import Todo from './views/todo/Todo';
+import LoginForm from './components/loginForm/LoginForm';
+import RegistrationForm from './components/registration/RegistrationForm';
 function App() {
   return (
     <>
@@ -20,6 +22,8 @@ function App() {
             <Route component={ShopItem} path="/ShopItem/:id" exact />
             <Route component={About} path="/about"/>
             <Route component={Todo} path="/todo"/>
+            <Route component={LoginForm} path="/login"/>
+            <Route component={RegistrationForm} path="/registration"/>
             <Route component={Shop} path="/" exact />
           </Switch>
         </div>
