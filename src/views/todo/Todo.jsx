@@ -5,7 +5,7 @@ import TodoList from "../../components/todo/TodoList";
 import {addTodoAcion, RemoveTodoAcion } from '../../redux/todoRedux'
 import './Todo.css';
 function Todo() {
-const todoState = useSelector(state => state.todos)
+const todoState = useSelector(state => state.todoReducer.todos)
 const dispatch = useDispatch([])
     const addTodo = (task) => {
         dispatch(addTodoAcion(task))

@@ -6,7 +6,7 @@ import './Counter.css'
 function Counter() {
   // global state from redux 
 
-  const countState = useSelector(state => state.count)
+  const countState = useSelector(state => state.counterReducer.count)
 
 
   return (<div className="d-flex justify-content-center text-center flex-column align-items-center">

@@ -1,6 +1,7 @@
 import { ErrorMessage, Field, FieldArray, Formik } from "formik"
 import { Form } from "react-bootstrap"
 import * as Yup from "yup";
+import FormikField from "../../shared/FormikField";
 
 const RegistrationForm = () => {
     return (
@@ -38,7 +39,7 @@ const RegistrationForm = () => {
                                 .oneOf([true], 'active is required')
                         })}
                         onSubmit={fields => {
-                            JSON.stringify(fields, null, 4)
+                            console.log(fields)
                         }}
                     >
                         {({ errors, status, touched, values }) => (
@@ -47,6 +48,7 @@ const RegistrationForm = () => {
                                     <div className="form-group col">
                                         <label>Gender</label>
                                         <Field name="gender" as="select" className={'form-control' + (errors.gender && touched.gender ? ' is-invalid' : '')}>
+                                            <option value="defaulte"></option>
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
                                         </Field>
@@ -58,34 +60,23 @@ const RegistrationForm = () => {
                                         <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
                                     </div>
                                     <div className="form-group col-5">
-                                        <label htmlFor="lastName">Last Name</label>
-                                        <Field name="lastName" type="text" className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
-                                        <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
+                                        <FormikField label="lastName" name="lastName" type="text" />
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="email">Email</label>
-                                    <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
-                                    <ErrorMessage name="email" component="div" className="invalid-feedback" />
+                                    <FormikField label="Email" name="email" type="email" />
                                 </div>
                                 <div className="form-row">
                                     <div className="form-group col">
-                                        <label htmlFor="password">Password</label>
-                                        <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
-                                        <ErrorMessage name="password" component="div" className="invalid-feedback" />
+                                        <FormikField label="password" name="password" type="password" />
                                     </div>
                                     <div className="form-group col">
-                                        <label htmlFor="confirmPassword">Confirm Password</label>
-                                        <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
-                                        <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
+                                        <FormikField label="confirmPassword" name="confirmPassword" type="password" />
                                     </div>
                                 </div>
                                 <div className="form-group form-check">
-                                    <Field type="checkbox" name="active" className={'form-check-input ' + (errors.active && touched.active ? ' is-invalid' : '')} />
-                                    <label htmlFor="active" className="form-check-label">Active</label>
-                                    <ErrorMessage name="active" component="div" className="invalid-feedback" />
+                                    <FormikField label="active" name="active" type="checkbox" />
                                 </div>
-                                {/* 88888888888888888888888888888888888888888888888888 */}
                                 <FieldArray
                                     className="py-1"
                                     name="hobbies"
@@ -115,7 +106,7 @@ const RegistrationForm = () => {
                                                     ))
                                                     : null}
                                                 <button
-                                                className="btn btn-dark"
+                                                    className="btn btn-dark"
                                                     type="button"
                                                     onClick={() => arrayHelpers.push("")} // insert an empty string at a position
                                                 >
@@ -130,9 +121,7 @@ const RegistrationForm = () => {
                                 />
                                 <div className="form-group">
                                     <button type="submit" className="btn btn-primary me-2">Register</button>
-                                    <button type="reset" className="btn btn-secondary">Reset</button>
                                 </div>
-
                             </Form>
                         )}
                     </Formik>

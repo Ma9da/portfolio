@@ -7,3 +7,4 @@ export const rootReducers = combineReducers({
     counterReducer,
     todoReducer
 })
+export default rootReducers;

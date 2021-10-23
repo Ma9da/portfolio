@@ -30,4 +30,3 @@ export function counterReducer(state = initialState, action) {
     }
 }
 // store 
-// export const store = createStore(counterReducer)

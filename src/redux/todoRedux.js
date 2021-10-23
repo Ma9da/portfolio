@@ -1,4 +1,4 @@
-import { createStore } from "redux"
+// import { createStore } from "redux"
 
 //action
 const ADD_TODO = "ADD_TODO"
@@ -37,4 +37,3 @@ export const todoReducer = (state = intialState, action) => {
     }
 }
 //store
-export const store = createStore(todoReducer)
