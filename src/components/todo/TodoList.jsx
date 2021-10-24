@@ -6,7 +6,7 @@ const TodoList = ({ todos, deleteTodo }) => {
 
             todos.map((todo, index) => {
                 return (
-                            <Card key={index}>
+                            <Card key={index} className="w-50 m-auto my-5">
                                 <span className="bg-light">
                                     <Card.Header>{todo.title}</Card.Header>
                                     <Card.Body>
