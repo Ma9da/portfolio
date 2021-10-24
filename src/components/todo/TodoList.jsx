@@ -6,17 +6,17 @@ const TodoList = ({ todos, deleteTodo }) => {
 
             todos.map((todo, index) => {
                 return (
-                            <Card key={index} className="w-50 m-auto my-5">
-                                <span className="bg-light">
-                                    <Card.Header>{todo.title}</Card.Header>
-                                    <Card.Body>
-                                        <Card.Text>
-                                            {todo.content}
-                                        </Card.Text>
-                                        <button className="btn btn-danger" onClick={() => deleteTodo(index)}>Remove</button>
-                                    </Card.Body>
-                                </span>
-                            </Card>
+                        <Card key={index} className="w-50 m-auto my-5">
+                            <span className="bg-light">
+                                <Card.Header>{todo.title}</Card.Header>
+                                <Card.Body>
+                                    <Card.Text>
+                                        {todo.content}
+                                    </Card.Text>
+                                    <button className="btn btn-danger" onClick={() => deleteTodo(index)}>Remove</button>
+                                </Card.Body>
+                            </span>
+                        </Card>
                 );
             })
         )

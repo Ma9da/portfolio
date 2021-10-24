@@ -63,9 +63,9 @@ const LoginForm = () => {
                     {...formik.getFieldProps("rememberMe")}
                 />
 
-                <button style={{ display: "block" }}>submit</button>
+                <button  className="btn btn-primary" style={{ display: "block" }}>submit</button>
             </div>
-            <pre>{JSON.stringify(formik, null, 4)}</pre>
+            {/* <pre>{JSON.stringify(formik, null, 4)}</pre> */}
         </form>
     );
 };

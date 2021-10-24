@@ -7,7 +7,7 @@ const RegistrationForm = () => {
     return (
         <div className="container">
             <div className="row justify-content-center my-5">
-                <div className="col-8">
+                <div className="col-5">
                     <Formik
                         initialValues={{
                             gender: '',
@@ -45,7 +45,7 @@ const RegistrationForm = () => {
                         {({ errors, status, touched, values }) => (
                             <Form>
                                 <div className="form-row">
-                                    <div className="form-group col">
+                                    <div className="form-group col-5">
                                         <label>Gender</label>
                                         <Field name="gender" as="select" className={'form-control' + (errors.gender && touched.gender ? ' is-invalid' : '')}>
                                             <option value="defaulte"></option>
@@ -59,7 +59,7 @@ const RegistrationForm = () => {
                                         <Field name="firstName" type="text" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
                                         <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
                                     </div>
-                                    <div className="form-group col-5">
+                                    <div className="form-group col">
                                         <FormikField label="lastName" name="lastName" type="text" />
                                     </div>
                                 </div>
@@ -126,8 +126,14 @@ const RegistrationForm = () => {
                         )}
                     </Formik>
                 </div>
+                <div className="col-4">
+                    <h1 className="fs-1 fw-bold">welcome</h1>
+                    {/* <img src="https://64.media.tumblr.com/8e2bc656d1b593ce313a79dd54d98d89/tumblr_pezzv5VhQA1xuaeq7o7_400.jpg" alt="" /> */}
+                    <p>glad you visited our website, be part of our family now!</p>
+                </div>
             </div>
         </div>
+
     )
 }
 export default RegistrationForm
