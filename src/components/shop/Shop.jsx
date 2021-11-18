@@ -7,12 +7,16 @@ import 'boxicons'
 const Shop = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetchProducts()
+        // eslint-disable-next-line
+        let isMounted = true
+        if (isMounted) { fetchProducts() }
+        return () => { isMounted = false }
     }, [])
+
     const fetchProducts = () => {
         return fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
-            .then(json => setProducts(json))
+            .then(json => setProducts(json)).catch((error) => { return error })
     }
 
     return (
@@ -37,7 +41,7 @@ const Shop = () => {
                                             <Card.Footer className="d-flex justify-content-between align-items-center">
                                                 <small className="text-muted">{product.category}</small>
                                                 <small><box-icon name='star' type='solid' color='#ffe234' size="15px" ></box-icon> {product.rating.rate}</small>
-                                                <small><box-icon name='shopping-bags' type='solid' color='#75746f' size="15px"></box-icon> {product.rating.count}</small>
+                                                <small><box-icon type='solid' name='shopping-bags' color='#242424' size="15px"></box-icon> {product.rating.count}</small>
                                                 <Badge pill bg="secondary">
                                                     {product.price + " L.E"}
                                                 </Badge>

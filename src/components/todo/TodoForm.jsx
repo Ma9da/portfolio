@@ -1,4 +1,3 @@
-import Button from "@restart/ui/esm/Button";
 import { useState } from "react";
 import { Form, FormControl, InputGroup } from "react-bootstrap";
 
@@ -29,7 +28,7 @@ const TodoForm = ({ addTodo }) => {
                                 />
                             </InputGroup>
                             <Form.Control className="mb-3" value={content} onChange={(e) => setContent(e.target.value)} as="textarea" placeholder="todo content.." rows={3} />
-                            <button type="submit" class="btn btn-outline-success my-2">Add task <box-icon name='plus-circle' size="15px" type='solid' color='#198754' ></box-icon></button>
+                            <button type="submit" className="btn btn-outline-success my-2">Add task <box-icon name='plus-circle' size="15px" type='solid' color='#198754' ></box-icon></button>
                         </form>
                     </div>
                 </div>

@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react"
-import { Badge, Card, Figure, Spinner } from "react-bootstrap"
+import { Badge, Figure, Spinner } from "react-bootstrap"
 
 const ShopItem = ({ match }) => {
     const [productItem, setproduct] = useState(null)
     useEffect(() => {
-        getProduct()
+        // eslint-disable-next-line
+        let isMounted = true
+        if (isMounted) { getProduct() }
+        return () => { isMounted = false }
     })
 
 
     const getProduct = () => {
         return fetch(`https://fakestoreapi.com/products/${match.params.id}`)
             .then(res => res.json())
-            .then(json => setproduct(json))
+            .then(json => setproduct(json)).catch((error) => { return error })
     }
     return (
         <>
