@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Badge, Card, Spinner } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import './shop.css'
+import 'boxicons'
 
 const Shop = () => {
     const [products, setProducts] = useState([])
@@ -17,26 +18,28 @@ const Shop = () => {
     return (
         <>
             {
-                products 
-                ?
+                products
+                    ?
                     (<div className="container">
                         <div className="row">
                             <h1 className="text-center my-5">Shop</h1>
                             {products.map(product => {
                                 return (
-                                    <div className="col-3" key={product.id}>
-                                        <Card className="shop-card my-2">
-                                            <Card.Img variant="top" className="w-50 m-auto" src={product.image} />
-                                            <Card.Body>
-                                                <Card.Title>{product.title}</Card.Title>
+                                    <div className="col-xl-3 col-md-6 col-sm-6" key={product.id}>
+                                        <Card className="shop-card my-3">
+                                            <Card.Img variant="bottom" className="w-50 m-auto" src={product.image} />
+                                            <Card.Body className="shopping-card">
+                                                <Card.Title>{product.title.length > 10 ? product.title.substring(0, 10) + "..." : product.title}</Card.Title>
                                                 <Card.Text className="text-truncate">
                                                     {product.description}
                                                 </Card.Text>
                                             </Card.Body>
-                                            <Card.Footer className="d-flex justify-content-between">
+                                            <Card.Footer className="d-flex justify-content-between align-items-center">
                                                 <small className="text-muted">{product.category}</small>
+                                                <small><box-icon name='star' type='solid' color='#ffe234' size="15px" ></box-icon> {product.rating.rate}</small>
+                                                <small><box-icon name='shopping-bags' type='solid' color='#75746f' size="15px"></box-icon> {product.rating.count}</small>
                                                 <Badge pill bg="secondary">
-                                                    {product.price}
+                                                    {product.price + " L.E"}
                                                 </Badge>
                                             </Card.Footer>
                                             <Link to={`/ShopItem/${product.id}`} className="stretched-link"></Link>
@@ -53,8 +56,8 @@ const Shop = () => {
                             <span className="visually-hidden">Loading...</span>
                         </Spinner>
                     )
-                }
-                </>
+            }
+        </>
     )
 }
 export default Shop

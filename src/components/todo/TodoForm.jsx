@@ -23,17 +23,13 @@ const TodoForm = ({ addTodo }) => {
                                 <FormControl
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
-                                    placeholder="write todo task here..."
+                                    placeholder="todo title..."
                                     aria-label="Recipient's username"
                                     aria-describedby="basic-addon2"
                                 />
-                                <Button variant="outline-secondary" id="button-addon2" type="submit" className="btn btn-primary">
-                                    Add
-                                </Button>
                             </InputGroup>
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1" value={content} onChange={(e) => setContent(e.target.value)}>
-                                <Form.Control as="textarea" rows={3} />
-                            </Form.Group>
+                            <Form.Control className="mb-3" value={content} onChange={(e) => setContent(e.target.value)} as="textarea" placeholder="todo content.." rows={3} />
+                            <button type="submit" class="btn btn-outline-success my-2">Add task <box-icon name='plus-circle' size="15px" type='solid' color='#198754' ></box-icon></button>
                         </form>
                     </div>
                 </div>

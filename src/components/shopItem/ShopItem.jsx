@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
-import { Badge, Card, Spinner } from "react-bootstrap"
+import { Badge, Card, Figure, Spinner } from "react-bootstrap"
 
-const ShopItem = ({match}) => {
+const ShopItem = ({ match }) => {
     const [productItem, setproduct] = useState(null)
     useEffect(() => {
         getProduct()
-    },)
+    })
 
 
     const getProduct = () => {
@@ -16,26 +16,60 @@ const ShopItem = ({match}) => {
     return (
         <>
             {
-            productItem
-                ?
-                (<Card className="d-flex flex-row align-items-center my-5 p-5">
-                    <Card.Img className="w-50" variant="top" src={productItem.image} />
-                    <Card.Body>
-                        <Card.Title>{productItem.title}</Card.Title>
-                        <Card.Text>
-                            {productItem.description}
-                        </Card.Text>
-                        <Card.Text>
-                        <Badge bg="dark">{productItem.price}</Badge>
-                        </Card.Text>
-                    </Card.Body>
-                </Card>)
-                :
-                (
-                        <Spinner animation="grow" role="status" className="my-5 text-center">
-                            <span className="visually-hidden">Loading...</span>
-                        </Spinner>
-                )
+                productItem
+                    ?
+                    (
+                        <>
+                            <div className="container">
+                                <div className="row justify-content-center">
+                                    <div className="col-7">
+                                        <Figure className="my-5">
+                                            <Figure.Image
+                                                width={171}
+                                                height={180}
+                                                alt="171x180"
+                                                src={productItem.image}
+                                            />
+                                            <Figure.Caption>
+                                                <h3>{productItem.title}</h3>
+                                                <div className="d-flex d-none d-xl-block">
+                                                    <Badge bg="info">{productItem.price + " L.E"} </Badge>
+                                                    <Badge className="mx-2" bg="primary">
+                                                        {"number of purchases: " + productItem.rating.count}
+                                                    </Badge>
+                                                    <Badge bg="secondary">{productItem.category} </Badge>
+                                                </div>
+                                                <div className="my-2"><Badge bg="light" text="dark">
+                                                    Rating: {productItem.rating.rate + " "}<box-icon name='star' type='solid' color='#ffe234' size="13px" ></box-icon>
+                                                </Badge></div>
+                                                <p>
+                                                    {productItem.description}
+                                                </p>
+                                            </Figure.Caption>
+                                        </Figure>
+                                    </div>
+                                </div >
+                            </div >
+                        </>
+                    )
+                    :
+                    (
+                        <div className="container">
+                            <div className="row justify-content-center py-5">
+                                <div className="col-1 d-flex align-items-center">
+                                    <Spinner size="sm" animation="grow" role="status">
+                                        <span className="visually-hidden">Loading...</span>
+                                    </Spinner>
+                                    <Spinner className="d-none d-xl-block" size="sm" animation="grow" role="status">
+                                        <span className="visually-hidden">Loading...</span>
+                                    </Spinner>
+                                    <Spinner className="d-none d-xl-block" size="sm" animation="grow" role="status">
+                                        <span className="visually-hidden">Loading...</span>
+                                    </Spinner>
+                                </div>
+                            </div>
+                        </div>
+                    )
             }
         </>
     )

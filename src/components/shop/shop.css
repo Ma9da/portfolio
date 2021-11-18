@@ -1,3 +1,6 @@
 .shop-card{
     height: 400px !important;
 }
+.shopping-card{
+    flex: 0 !important;
+}

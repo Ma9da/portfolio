@@ -6,17 +6,22 @@ const TodoList = ({ todos, deleteTodo }) => {
 
             todos.map((todo, index) => {
                 return (
-                        <Card key={index} className="w-50 m-auto my-5">
-                            <span className="bg-light">
-                                <Card.Header>{todo.title}</Card.Header>
-                                <Card.Body>
-                                    <Card.Text>
-                                        {todo.content}
-                                    </Card.Text>
-                                    <button className="btn btn-danger" onClick={() => deleteTodo(index)}>Remove</button>
-                                </Card.Body>
-                            </span>
-                        </Card>
+                    <>
+                        {todo.title && todo.content
+                            ?
+                            (
+                                <div key={index} className="card w-50 m-auto my-5">
+                                    <div class="card-header">
+                                        {todo.title}
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">{todo.content}</p>
+                                        <button className="btn btn-danger" onClick={() => deleteTodo(index)}><box-icon name='trash' color='#ffffff' size="15px" ></box-icon> Remove</button>
+                                    </div>
+                                </div>
+                            )
+                            : ''}
+                    </>
                 );
             })
         )
@@ -27,7 +32,6 @@ const TodoList = ({ todos, deleteTodo }) => {
 
     return (
         <div className="text-left">
-            <h5 className="mx-5 text-muted">Todos List</h5>
             {todosList}
         </div>
     );

@@ -17,10 +17,7 @@ export const RemoveTodoAcion = (payload) => {
 }
 //state
 const intialState = {
-    todos: [
-        {title: "learn redux",
-        content: "redux crash course"}
-    ]
+    todos: [{}]
 }
 //reducer
 export const todoReducer = (state = intialState, action) => {

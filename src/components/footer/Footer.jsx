@@ -4,15 +4,15 @@ const Footer = () => {
     return (
         <>
             <>
-                <Nav className="justify-content-end bg-dark" id="footer" activeKey="/home">
+                <Nav className="justify-content-center bg-light" id="footer" fixed="bottom" activeKey="/home">
                     <Nav.Item>
-                        <Nav.Link href="/About">Home</Nav.Link>
+                        <Nav.Link className="text-dark btn footer-item" href="/About">Home</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="/Todo">To-do</Nav.Link>
+                        <Nav.Link className="text-dark btn footer-item" href="/Todo">To-do</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="/Counter">Counter</Nav.Link>
+                        <Nav.Link className="text-dark btn footer-item" href="/Counter">Counter</Nav.Link>
                     </Nav.Item>
                 </Nav>
             </>
