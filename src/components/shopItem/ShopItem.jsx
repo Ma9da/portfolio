@@ -30,7 +30,7 @@ const ShopItem = ({ match }) => {
                                             <Figure.Image
                                                 width={171}
                                                 height={180}
-                                                alt="171x180"
+                                                alt={productItem.title}
                                                 src={productItem.image}
                                             />
                                             <Figure.Caption>
