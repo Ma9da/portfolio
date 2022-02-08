@@ -1,13 +1,13 @@
 import Button from "@restart/ui/esm/Button"
 import { Card, Image } from "react-bootstrap"
-import p1 from "./img/p1.jpg";
+import p1 from "./img/p1.png";
 import cv from './img/magda-ahmed-frontend.pdf';
 import './about.css'
 const About = () => {
     return (
         <div className="container">
             <div className="row justify-content-center py-5">
-                <div className="col-8 d-flex flex-row my-5 align-items-center">
+                <div className="col-11 d-flex flex-row my-5 align-items-center">
                     <Card.Img className="d-xl-block d-none" variant="top" src={p1} />
                     <Card.Body>
                         <Card.Title className="p-2 m-2">About <img src="https://img.icons8.com/color/48/000000/reading-unicorn.png" alt="unicorn" /> </Card.Title>
