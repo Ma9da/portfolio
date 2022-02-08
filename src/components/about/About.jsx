@@ -1,7 +1,7 @@
 import Button from "@restart/ui/esm/Button"
 import { Card, Image } from "react-bootstrap"
 import p1 from "./img/p1.png";
-import cv from './img/magda-ahmed-frontend.pdf';
+import cv from './img/Magda-Ahmed-Hussien-CV.pdf';
 import './about.css'
 const About = () => {
     return (
