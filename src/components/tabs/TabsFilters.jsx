@@ -5,16 +5,16 @@ const Tabsfilters = () => {
         <>
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">All</a>
+                    {/* <a class="nav-link active" aria-current="page" href="#">All</a> */}
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Female</a>
+                    {/* <a class="nav-link" href="#">Female</a> */}
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Male</a>
+                    {/* <a class="nav-link" href="#">Male</a> */}
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link ">other</a>
+                    {/* <a class="nav-link ">other</a> */}
                 </li>
             </ul>
         </>
