@@ -10,6 +10,7 @@ import About from './components/about/About';
 import Todo from './views/todo/Todo';
 import LoginForm from './components/loginForm/LoginForm';
 import RegistrationForm from './components/registration/RegistrationForm';
+import Tabsfilters from './components/tabs/TabsFilters';
 function App() {
   return (
     <>
@@ -20,10 +21,11 @@ function App() {
             <Route path="/Counter" component={Counter} />
             <Route component={Shop} path="/Shop" />
             <Route component={ShopItem} path="/ShopItem/:id" exact />
-            <Route component={About} path="/about"/>
-            <Route component={Todo} path="/todo"/>
-            <Route component={LoginForm} path="/login"/>
-            <Route component={RegistrationForm} path="/registration"/>
+            <Route component={About} path="/about" />
+            <Route component={Todo} path="/todo" />
+            <Route component={LoginForm} path="/login" />
+            <Route component={RegistrationForm} path="/registration" />
+            <Route component={Tabsfilters} path="/tabs" />
             <Route component={Shop} path="/" exact />
           </Switch>
         </div>

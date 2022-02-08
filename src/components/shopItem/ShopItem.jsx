@@ -43,7 +43,7 @@ const ShopItem = ({ match }) => {
                                                     <Badge bg="secondary">{productItem.category} </Badge>
                                                 </div>
                                                 <div className="my-2"><Badge bg="light" text="dark">
-                                                    Rating: {productItem.rating.rate + " "}<box-icon name='star' type='solid' color='#ffe234' size="13px" ></box-icon>
+                                                    Rating: {productItem.rating.rate + " "}<box-icon name='star' type='solid' color='#FFC610' size="13px" ></box-icon>
                                                 </Badge></div>
                                                 <p>
                                                     {productItem.description}

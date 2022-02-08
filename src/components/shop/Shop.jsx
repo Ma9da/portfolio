@@ -3,6 +3,7 @@ import { Badge, Card, Spinner } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import './shop.css'
 import 'boxicons'
+import Tabsfilters from "../tabs/TabsFilters"
 
 const Shop = () => {
     const [products, setProducts] = useState([])
@@ -27,6 +28,7 @@ const Shop = () => {
                     (<div className="container">
                         <div className="row">
                             <h1 className="text-center my-5">Shop</h1>
+                            <Tabsfilters/>
                             {products.map(product => {
                                 return (
                                     <div className="col-xl-3 col-md-6 col-sm-6" key={product.id}>
