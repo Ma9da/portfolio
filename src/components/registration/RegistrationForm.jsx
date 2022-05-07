@@ -7,7 +7,7 @@ const RegistrationForm = () => {
     return (
         <div className="container">
             <div className="row justify-content-center my-5">
-                <div className="col-5">
+                <div className="col-8">
                     <Formik
                         initialValues={{
                             gender: '',
@@ -125,11 +125,6 @@ const RegistrationForm = () => {
                             </Form>
                         )}
                     </Formik>
-                </div>
-                <div className="col-4">
-                    <h1 className="fs-1 fw-bold">welcome</h1>
-                    {/* <img src="https://64.media.tumblr.com/8e2bc656d1b593ce313a79dd54d98d89/tumblr_pezzv5VhQA1xuaeq7o7_400.jpg" alt="" /> */}
-                    <p>glad you visited our website, be part of our family now!</p>
                 </div>
             </div>
         </div>
