@@ -89,7 +89,8 @@ const RegistrationForm = () => {
 									/>
 								</div>
 								<div className="form-group">
-									<FormikField
+									<Form.Label>Gender</Form.Label>
+									<Field
 										label="gender"
 										name="gender"
 										type="select"
@@ -102,10 +103,10 @@ const RegistrationForm = () => {
 												: "")
 										}
 									>
-										{/* <option value="defaulte"></option>
+										<option value="defaulte"></option>
 										<option value="Male">Male</option>
-										<option value="Female">Female</option> */}
-									</FormikField>
+										<option value="Female">Female</option>
+									</Field>
 									<ErrorMessage
 										name="gender"
 										component="div"
@@ -130,7 +131,7 @@ const RegistrationForm = () => {
 								</div>
 								<div className="form-group">
 									<Form.Label className="me-2">
-										active
+										Active
 									</Form.Label>
 									<Field
 										label="active"
