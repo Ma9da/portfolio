@@ -1,17 +1,15 @@
 import React from "react";
 import { ErrorMessage } from "formik";
+import { Alert } from "react-bootstrap";
 
-/**
- * FormikErrorMessage Component
- */
 const FormikErrorMessage = ({ name }) => {
-    return (
-        <ErrorMessage name={name}>
-            {(errMessage) => {
-                return <div style={{ color: "red" }}>{errMessage}</div>;
-            }}
-        </ErrorMessage>
-    );
+	return (
+		<ErrorMessage name={name}>
+			{(errMessage) => {
+				return <Alert variant="danger">{errMessage}</Alert>;
+			}}
+		</ErrorMessage>
+	);
 };
 
 export default FormikErrorMessage;
